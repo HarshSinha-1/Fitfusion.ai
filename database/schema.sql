@@ -142,6 +142,12 @@ CREATE TABLE IF NOT EXISTS mood_logs (
   -- Optional wellness circle link
   circle_id        UUID,          -- FK added after wellness_circles table
 
+  -- Sentiment analysis output from mood pipeline
+  sentiment_score  NUMERIC(6,3),
+  sentiment_label  VARCHAR(30),
+  primary_emotion  VARCHAR(50),
+  sentiment_data   JSONB,
+
   logged_at        TIMESTAMPTZ   NOT NULL DEFAULT NOW()
 );
 

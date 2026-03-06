@@ -34,8 +34,8 @@ const FOOD_DB: Record<string, {
   paneer:         { calories: 265, protein: 18.0, carbs: 1.2, fats: 20.0, fiber: 0.0, per: '100g' },
   chicken_curry:  { calories: 150, protein: 20.0, carbs: 5.0, fats: 6.0, fiber: 1.0, per: '100g' },
   sabzi:          { calories:  60, protein: 2.0,  carbs: 10.0, fats: 2.0, fiber: 3.0, per: '100g' },
-  curd:           { calories:  98, protein: 11.0, carbs: 3.4, fats: 4.3, fiber: 0.0, per: '100g' },
-  khichdi:        { calories: 124, protein: 4.5,  carbs: 23.0, fats: 2.0, fiber: 2.5, per: '100g' },
+  curd:         { calories:  98, protein: 11.0, carbs: 3.4, fats: 4.3, fiber: 0.0, per: '100g' },
+  khichdi:      { calories: 124, protein: 4.5,  carbs: 23.0, fats: 2.0, fiber: 2.5, per: '100g' },
   poha:           { calories: 130, protein: 2.5,  carbs: 28.0, fats: 0.5, fiber: 1.2, per: '100g' },
   idli:           { calories:  39, protein: 2.0,  carbs: 8.0,  fats: 0.2, fiber: 0.5, per: '1 piece' },
   dosa:           { calories: 133, protein: 3.5,  carbs: 22.0, fats: 3.7, fiber: 1.0, per: '1 medium' },
@@ -211,7 +211,7 @@ export const nutritionService = {
           JSON.stringify(enrichedItems),
           location || null, notes || null,
           round1(totals.calories), round1(totals.protein),
-          round1(totals.carbs),    round1(totals.fats),
+          round1(totals.carbs), round1(totals.fats),
           round1(totals.fiber),
         ]
       );
@@ -295,13 +295,13 @@ export const nutritionService = {
     const tip = generateDailyTip(totals, rdi);
 
     return {
-      date:         targetDate,
+      date: targetDate,
       meals,
       totals,
       rdi,
       rdi_progress,
       meal_status,
-      meal_count:   meals.length,
+      meal_count: meals.length,
       tip,
     };
   },
@@ -389,7 +389,7 @@ export const nutritionService = {
     const plan = buildMealPlan({ goal, restrictions: allRestrictions, days, rdi });
 
     return {
-      source:   'rule_based',   // swap to 'ml' when Python service is live
+      source: 'rule_based',   // swap to 'ml' when Python service is live
       goal,
       rdi,
       plan,
